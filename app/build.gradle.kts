@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -19,6 +20,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        android.buildFeatures.buildConfig = true
     }
 
     buildTypes {
@@ -28,6 +30,14 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String", "BASE_URL", "\"https://mdblist.p.rapidapi.com/?s=Bad\"")
+            buildConfigField("String", "KEY", "\"6eff2e514fmshbbf0aa7326bf0fep15e06djsn3463b8100826\"")
+            buildConfigField("String", "HOST", "\"mdblist.p.rapidapi.com\"")
+        }
+        debug {
+            buildConfigField("String", "BASE_URL", "\"https://mdblist.p.rapidapi.com/?s=Bad\"")
+            buildConfigField("String", "KEY", "\"6eff2e514fmshbbf0aa7326bf0fep15e06djsn3463b8100826\"")
+            buildConfigField("String", "HOST", "\"mdblist.p.rapidapi.com\"")
         }
     }
     compileOptions {
@@ -44,7 +54,6 @@ dependencies {
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.8.0")
-    implementation("androidx.constraintlayout:constraint layout:2.0.4")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
@@ -52,7 +61,6 @@ dependencies {
 
     runtimeOnly("io.insert-koin:koin-core:3.3.3")
     implementation("io.insert-koin:koin-android:3.3.3")
-    implementation("io.insert-koin:koin-androidx-viewmodel:2.2.3")
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.0")
