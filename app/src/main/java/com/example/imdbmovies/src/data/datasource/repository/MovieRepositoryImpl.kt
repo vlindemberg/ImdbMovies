@@ -5,8 +5,9 @@ import com.example.imdbmovies.src.data.datasource.extensions.toListOfMovie
 import com.example.imdbmovies.src.domain.model.Movie
 import com.example.imdbmovies.src.domain.repository.MovieRepository
 import io.reactivex.Single
+import javax.inject.Inject
 
-class MovieRepositoryImpl(
+class MovieRepositoryImpl @Inject constructor (
     private val remoteDataSource: MovieRemote
 ) : MovieRepository {
     override fun getMovies(): Single<List<Movie>> =

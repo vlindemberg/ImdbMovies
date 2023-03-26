@@ -1,4 +1,4 @@
-package com.example.imdbmovies.src.extensions
+package com.example.imdbmovies.src.domain.extensions
 
 import com.example.imdbmovies.src.domain.model.Movie
 import com.example.imdbmovies.src.presentation.model.MovieViewData
@@ -9,11 +9,11 @@ fun Single<List<Movie>>.toMovieViewData(): Single<List<MovieViewData>> =
         movies.map { movie ->
             MovieViewData(
                 id = movie.id,
+                imgUrl = movie.imgUrl,
+                imgAlt = movie.imgAlt,
                 title = movie.title,
                 year = movie.year,
-                score = movie.score,
-                scoreAverage = movie.scoreAverage,
-                type = movie.type
+                endYear = movie.endYear,
             )
         }
     }

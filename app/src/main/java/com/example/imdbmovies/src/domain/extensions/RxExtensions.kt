@@ -1,4 +1,4 @@
-package com.example.imdbmovies.src.extensions
+package com.example.imdbmovies.src.domain.extensions
 
 import io.reactivex.Completable
 import io.reactivex.Observable

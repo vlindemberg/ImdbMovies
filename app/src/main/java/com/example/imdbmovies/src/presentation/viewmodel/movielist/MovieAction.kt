@@ -1,4 +1,4 @@
-package com.example.imdbmovies.src.presentation.viewmodel
+package com.example.imdbmovies.src.presentation.viewmodel.movielist
 
 import com.example.imdbmovies.arch.UIAction
 import com.example.imdbmovies.src.presentation.model.MovieViewData
