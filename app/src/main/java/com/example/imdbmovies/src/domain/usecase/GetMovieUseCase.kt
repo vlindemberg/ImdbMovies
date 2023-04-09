@@ -9,7 +9,7 @@ import javax.inject.Inject
 internal class GetMoviesUseCase @Inject constructor(
     private val movieRepository: MovieRepository
 ) {
-    operator fun invoke(): Single<List<MovieViewData>> {
-        return movieRepository.getMovies().toMovieViewData()
+    operator fun invoke(genre: String, year: String): Single<List<MovieViewData>> {
+        return movieRepository.getMovies(genre, year).toMovieViewData()
     }
 }

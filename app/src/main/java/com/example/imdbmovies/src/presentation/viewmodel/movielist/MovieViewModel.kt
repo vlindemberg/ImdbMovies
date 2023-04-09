@@ -11,8 +11,8 @@ internal class MovieViewModel @Inject constructor(
     private val getMoviesUseCase: GetMoviesUseCase
 ) : ViewModel<MovieState, MovieAction>(MovieState()) {
 
-    fun getMovies() {
-        getMoviesUseCase()
+    fun getMovies(genre: String, year: String) {
+        getMoviesUseCase(genre, year)
             .applyIOToMainThread()
             .doOnSubscribe { setState { it.copy(isLoading = true) } }
             .doAfterTerminate { setState { it.copy(isLoading = false) } }

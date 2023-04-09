@@ -5,6 +5,6 @@ data class MovieViewData(
     val imgUrl: String,
     val imgAlt: String,
     val title: String,
-    val year: Long,
-    val endYear: Long,
+    val year: String,
+    val endYear: String,
 )

@@ -10,7 +10,7 @@ import javax.inject.Inject
 class MovieRepositoryImpl @Inject constructor (
     private val remoteDataSource: MovieRemote
 ) : MovieRepository {
-    override fun getMovies(): Single<List<Movie>> =
-        remoteDataSource.fetch().toListOfMovie()
+    override fun getMovies(genre: String, year: String): Single<List<Movie>> =
+        remoteDataSource.fetch(genre, year).toListOfMovie()
             .onErrorResumeNext { throwable -> Single.error(throwable) }
 }

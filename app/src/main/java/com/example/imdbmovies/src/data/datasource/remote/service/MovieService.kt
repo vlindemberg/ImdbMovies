@@ -4,8 +4,8 @@ import com.example.imdbmovies.BuildConfig
 import com.example.imdbmovies.src.data.datasource.remote.model.MovieResponse
 import io.reactivex.Single
 import retrofit2.http.GET
-import retrofit2.http.Header
 import retrofit2.http.Headers
+import retrofit2.http.Query
 
 interface MovieService {
     @Headers(
@@ -13,5 +13,9 @@ interface MovieService {
         "X-RapidAPI-Host:${BuildConfig.HOST}"
     )
     @GET("titles/")
-    fun getMovies(): Single<MovieResponse>
+    fun getMovies(
+        @Query("titleType") type: String = "movie",
+        @Query("genre") genre: String,
+        @Query("year") year: String,
+        ): Single<MovieResponse>
 }

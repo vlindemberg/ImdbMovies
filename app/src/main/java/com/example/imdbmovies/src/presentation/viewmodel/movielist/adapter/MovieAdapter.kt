@@ -1,4 +1,4 @@
-package com.example.imdbmovies.src.presentation.viewmodel.movielist
+package com.example.imdbmovies.src.presentation.viewmodel.movielist.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -22,9 +22,12 @@ class MovieAdapter(private val movieList: List<MovieViewData>) :
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val movie = movieList[position]
-        holder.binding.apply {
-            Glide.with(movieImage).load(movie.imgUrl).into(movieImage)
-            movieName.text = movie.title
+        if (movie.imgUrl.isNotEmpty()) {
+            holder.binding.apply {
+                Glide.with(movieImage).load(movie.imgUrl).into(movieImage)
+                movieName.text = movie.title
+                movieYear.text = movie.year
+            }
         }
     }
 
